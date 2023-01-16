@@ -1,5 +1,6 @@
 # CReM: Chemically Reasonable Mutations Framework for Structure Generation
 
+[![Open All Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ersilia-os/eos4q1a)
 ## Model identifiers
 
 - Slug: crem-structure-generation
