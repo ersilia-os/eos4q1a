@@ -1,37 +1,40 @@
-# CReM: Chemically Reasonable Mutations Framework for Structure Generation
+# CReM fragment based structure generation
 
-[![Open All Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ersilia-os/eos4q1a)
-## Model identifiers
+CReM (chemically reasonable mutations) is a fragment-based generative model that takes as input a small molecule, breaks it down into fragments and iteratively replaces them with other fragments from a database. It has three implementations (MUTATE: arbitrarily replaces one fragment with another one); GROW (arbitrarily replaces an hydrogen with another fragment) and LINK (replaces hydrogen atoms in two molecules to link them with a fragment). Here, we use a MUTATE and GROWTH approach, which provide outputs that vary by order of 1000s. For sake of simplicity, for such molecules generating over 100 molecules, only 100 diverse molecules are selected. This selection is done using mini batch K Means clustering with 100 clusters and molecules closest to the centroid in each cluster are returned.
 
-- Slug: crem-structure-generation
-- Ersilia ID: eos4q1a
-- Tags: generative, fragment-based, rule-based
+## Identifiers
 
-## Model description
+* EOS model ID: `eos4q1a`
+* Slug: `crem-structure-generation`
 
-The framework is an open source implementation of fragment based generative approaches for exploring chemical space while ensuring chemical validity. This framework utilizes a database of known compounds to come up with interchangable fragments based on the context radius of an input molecule to generate new molecules. The generated molecules vary across inputs by order of 1000s. For sake of simplicity, for such molecules generating over 100 molecules, only 100 diverse molecules are returned in the output. This selection is done using mini batch K Means clustering with 100 clusters and molecules closest to the centroid in each cluster are returned.  
+## Characteristics
 
-- Input: SMILES
-- Output: SMILES
-- Model type: Rule-based generative model
+* Input: `Compound`
+* Input Shape: `Single`
+* Task: `Generative`
+* Output: `Compound`
+* Output Type: `String`
+* Output Shape: `Flexible List`
+* Interpretation: Up to 100 newly generated molecules
 
-## Source code
+## References
 
-This framework has been published by Polishchuk, P. CReM: chemically reasonable mutations framework for structure generation. J Cheminform 12, 28 (2020). DOI: [https://doi.org/10.1186/s13321-020-00431-w](https://doi.org/10.1186/s13321-020-00431-w)
+* [Publication](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00431-w)
+* [Source Code](https://github.com/DrrDom/crem)
+* Ersilia contributor: [DhanshreeA](https://github.com/DhanshreeA)
 
-- [Code](https://github.com/DrrDom/crem) and [Documentation](https://crem.readthedocs.io/en/latest/)
-- Fragment database: replacements02_sc2.db - [database](lhttp://www.qsar4u.com/pages/crem.php) created from ChEMBL v22 structures which contain only organic atoms (C,N,O,S,P,F,Cl,Br,I) and have maximum synthetic complexity score (SCScore) 2.
+## Citation
+
+If you use this model, please cite the [original authors](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00431-w) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).
 
 ## License
 
-The BSD 3-Clause License applies to all parts of this repository.
+This package is licensed under a GPL-3.0 license. The model contained within this package is licensed under a BSD-3.0 license.
 
-## History
+Notice: Ersilia grants access to these models 'as is' provided by the original authors, please refer to the original code repository and/or publication if you use the model in your research.
 
-Model was incorporateed on December 19, 2022.
-
-## About us
+## About Us
 
 The [Ersilia Open Source Initiative](https://ersilia.io) is a Non Profit Organization ([1192266](https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/5170657/full-print)) with the mission is to equip labs, universities and clinics in LMIC with AI/ML tools for infectious disease research.
 
-[Help us](https://www.ersilia.io/donate) achieve our mission or [volunteer](https://www.ersilia.io/volunteer) with us!
+[Help us](https://www.ersilia.io/donate) achieve our mission!
