@@ -23,6 +23,11 @@ CReM (chemically reasonable mutations) is a fragment-based generative model that
 * [Source Code](https://github.com/DrrDom/crem)
 * Ersilia contributor: [DhanshreeA](https://github.com/DhanshreeA)
 
+## Ersilia model URLs
+* [GitHub](https://github.com/ersilia-os/eos4q1a)
+* [AWS S3](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4q1a.zip)
+* [DockerHub](https://hub.docker.com/r/ersiliaos/eos4q1a) (AMD64, ARM64)
+
 ## Citation
 
 If you use this model, please cite the [original authors](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00431-w) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).

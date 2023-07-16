@@ -26,5 +26,11 @@
     "Publication": "https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00431-w",
     "Source Code": "https://github.com/DrrDom/crem",
     "License": "BSD-3.0",
-    "Contributor": "DhanshreeA"
+    "Contributor": "DhanshreeA",
+    "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4q1a.zip",
+    "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4q1a",
+    "Docker Architecture": [
+        "AMD64",
+        "ARM64"
+    ]
 }
