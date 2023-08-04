@@ -14,7 +14,7 @@ CReM (chemically reasonable mutations) is a fragment-based generative model that
 * Task: `Generative`
 * Output: `Compound`
 * Output Type: `String`
-* Output Shape: `Flexible List`
+* Output Shape: `List`
 * Interpretation: Up to 100 newly generated molecules
 
 ## References
