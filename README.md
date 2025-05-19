@@ -22,7 +22,7 @@ This model was incorporated on 2022-12-20.
 
 ### Output
 - **Output Dimension:** `100`
-- **Output Consistency:** `Fixed`
+- **Output Consistency:** `Variable`
 - **Interpretation:** Up to 100 newly generated molecules
 
 Below are the **Output Columns** of the model:
