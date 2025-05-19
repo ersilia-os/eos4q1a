@@ -50,7 +50,12 @@ _10 of 100 columns are shown_
 ### Resource Consumption
 - **Model Size (Mb):** `688`
 - **Environment Size (Mb):** `648`
+- **Image Size (Mb):** `2674.1`
 
+**Computational Performance (seconds):**
+- 10 inputs: `35.54`
+- 100 inputs: `-1`
+- 10000 inputs: `-1`
 
 ### References
 - **Source Code**: [https://github.com/DrrDom/crem](https://github.com/DrrDom/crem)
