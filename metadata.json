@@ -37,6 +37,8 @@
     "License": "BSD-3-Clause",
     "Contributor": "DhanshreeA",
     "Incorporation Date": "2022-12-15",
+    "Last Packaging Date": "2025-10-22",
+    "Release": "v1.0.0",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4q1a.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4q1a",
     "Docker Architecture": [
@@ -45,10 +47,10 @@
     ],
     "Model Size": 688.0,
     "Environment Size": 674.0,
-    "Image Size": 2674.1,
-    "Computational Performance 1": 35.54,
-    "Computational Performance 2": 79.99,
-    "Computational Performance 3": -1.0,
+    "Image Size": 2683.14,
+    "Computational Performance 1": 30.09,
+    "Computational Performance 2": 35.48,
+    "Computational Performance 3": 474.99,
     "Computational Performance 4": -1.0,
     "Computational Performance 5": -1.0
 }
