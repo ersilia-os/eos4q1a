@@ -2,8 +2,7 @@
 
 CReM (chemically reasonable mutations) is a fragment-based generative model that takes as input a small molecule, breaks it down into fragments and iteratively replaces them with other fragments from a database. It has three implementations (MUTATE: arbitrarily replaces one fragment with another one); GROW (arbitrarily replaces an hydrogen with another fragment) and LINK (replaces hydrogen atoms in two molecules to link them with a fragment). Here, we use a MUTATE and GROWTH approach, which provide outputs that vary by order of 1000s. For sake of simplicity, for such molecules generating over 100 molecules, only 100 diverse molecules are selected. This selection is done using mini batch K Means clustering with 100 clusters and molecules closest to the centroid in each cluster are returned.
 
-This model was incorporated on 2022-12-15.
-
+This model was incorporated on 2022-12-15.Last packaged on 2025-10-22.
 
 ## Information
 ### Identifiers
@@ -51,11 +50,11 @@ _10 of 100 columns are shown_
 ### Resource Consumption
 - **Model Size (Mb):** `688`
 - **Environment Size (Mb):** `674`
-- **Image Size (Mb):** `2674.1`
+- **Image Size (Mb):** `2683.14`
 
 **Computational Performance (seconds):**
-- 10 inputs: `35.54`
-- 100 inputs: `-1`
+- 10 inputs: `30.09`
+- 100 inputs: `474.99`
 - 10000 inputs: `-1`
 
 ### References
