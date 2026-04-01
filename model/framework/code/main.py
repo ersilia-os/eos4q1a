@@ -86,11 +86,11 @@ def my_model(smiles_list: List[str], database_path: str) -> List[List[str]]:
     for mol in input_mols:
         try:
             mutation_result = list(mutate_mol(mol=mol, db_name=database_path, ncores=2))
-        except KeyError:
+        except Exception:
             mutation_result = []  # Nothing generated
         try:
             growth_result = list(grow_mol(mol=mol, db_name=database_path, ncores=2))
-        except KeyError:
+        except Exception:
             growth_result = []  # Nothing generated
 
         generated_smiles = list(
