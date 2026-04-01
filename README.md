@@ -2,7 +2,7 @@
 
 CReM (chemically reasonable mutations) is a fragment-based generative model that breaks a molecule into fragments and replaces them with fragments from a database. It supports three modes: MUTATE (replace a fragment), GROW (replace a hydrogen with a fragment), and LINK (link two molecules via a fragment). This model uses MUTATE and GROW, which can generate thousands of analogues. When more than 100 molecules are generated, 100 diverse representatives are selected using Mini Batch K-Means clustering.
 
-This model was incorporated on 2022-12-15.Last packaged on 2025-10-22.
+This model was incorporated on 2022-12-15.Last packaged on 2026-04-01.
 
 ## Information
 ### Identifiers
@@ -44,17 +44,17 @@ _10 of 100 columns are shown_
 - **Source:** `Local`
 - **Source Type:** `External`
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos4q1a](https://hub.docker.com/r/ersiliaos/eos4q1a)
-- **Docker Architecture:** `AMD64`, `ARM64`
+- **Docker Architecture:** `AMD64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4q1a.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4q1a.zip)
 
 ### Resource Consumption
 - **Model Size (Mb):** `688`
 - **Environment Size (Mb):** `658`
-- **Image Size (Mb):** `2683.14`
+- **Image Size (Mb):** `2686.58`
 
 **Computational Performance (seconds):**
-- 10 inputs: `30.09`
-- 100 inputs: `474.99`
+- 10 inputs: `37.96`
+- 100 inputs: `490.14`
 - 10000 inputs: `-1`
 
 ### References
