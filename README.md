@@ -59,7 +59,7 @@ _10 of 100 columns are shown_
 
 ### References
 - **Source Code**: [https://github.com/DrrDom/crem](https://github.com/DrrDom/crem)
-- **Publication**: [https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00431-w](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00431-w)
+- **Publication**: [https://doi.org/10.1186/s13321-020-00431-w](https://doi.org/10.1186/s13321-020-00431-w)
 - **Publication Type:** `Peer reviewed`
 - **Publication Year:** `2020`
 - **Ersilia Contributor:** [DhanshreeA](https://github.com/DhanshreeA)
