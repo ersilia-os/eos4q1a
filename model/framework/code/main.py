@@ -8,7 +8,7 @@ import numpy as np
 import rdkit
 from crem.crem import grow_mol, mutate_mol
 from rdkit import DataStructs
-from rdkit.Chem import MolFromSmiles, rdMolDescriptors
+from rdkit.Chem import MolFromSmiles, MolToSmiles, rdMolDescriptors
 from sklearn.cluster import MiniBatchKMeans
 from sklearn.metrics import pairwise_distances_argmin_min
 
@@ -85,6 +85,12 @@ def sample_molecules(smiles: List[str]) -> List[str]:
     return sampled_smiles
 
 
+def is_same_2d_structure(smiles: str, flat_reference: str) -> bool:
+    """True if `smiles` has the same 2D structure (no stereo) as `flat_reference`."""
+    mol = MolFromSmiles(smiles)
+    return mol is not None and MolToSmiles(mol, isomericSmiles=False) == flat_reference
+
+
 # Generate unique molecules with replacement fragments from the database
 def my_model(smiles_list: List[str], database_path: str) -> List[List[str]]:
     output_smiles = list()
@@ -102,6 +108,15 @@ def my_model(smiles_list: List[str], database_path: str) -> List[List[str]]:
         generated_smiles = list(
             set(mutation_result + growth_result)
         )  # Keep unique smiles
+
+        # The input molecule must never be returned as one of its own "generated"
+        # outputs (CReM can reproduce it, e.g. by swapping a fragment for itself).
+        # Compared by 2D structure, ignoring stereochemistry. Done before the count
+        # below so the >100 clustering / <100 padding logic sees the real candidates.
+        input_flat = MolToSmiles(mol, isomericSmiles=False)
+        generated_smiles = [
+            s for s in generated_smiles if not is_same_2d_structure(s, input_flat)
+        ]
 
         num_generated_smiles = len(generated_smiles)
 
