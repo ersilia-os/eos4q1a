@@ -1,13 +1,13 @@
-# CReM fragment based structure generation
+# CReM mutate-based structure generation
 
-CReM (chemically reasonable mutations) is a fragment-based generative model that breaks a molecule into fragments and replaces them with fragments from a database. It supports three modes: MUTATE (replace a fragment), GROW (replace a hydrogen with a fragment), and LINK (link two molecules via a fragment). This model uses MUTATE and GROW, which can generate thousands of analogues. When more than 100 molecules are generated, 100 diverse representatives are selected using Mini Batch K-Means clustering.
+CReM (chemically reasonable mutations) is a fragment-based generative model that breaks a molecule into fragments and replaces them with fragments from a database. It supports three modes: MUTATE (replace a fragment), GROW (replace a hydrogen with a fragment), and LINK (link two molecules via a fragment). This model uses MUTATE only, which can generate thousands of analogues. When more than 100 molecules are generated, 100 diverse representatives are selected using Mini Batch K-Means clustering.
 
-This model was incorporated on 2022-12-15.Last packaged on 2026-09-24.
+This model was incorporated on 2022-12-15.Last packaged on 2026-09-28.
 
 ## Information
 ### Identifiers
 - **Ersilia Identifier:** `eos4q1a`
-- **Slug:** `crem-structure-generation`
+- **Slug:** `crem-mutate`
 
 ### Domain
 - **Task:** `Sampling`
