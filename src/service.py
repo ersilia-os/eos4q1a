@@ -13,7 +13,7 @@ import tempfile
 import subprocess
 import csv
 
-DATABASES_BASEDIR = "databases"
+DATABASES_BASEDIR = "checkpoints"
 FRAMEWORK_BASEDIR = "framework"
 
 def load_model(framework_dir, databases_dir):
@@ -108,7 +108,7 @@ class Artifact(BentoServiceArtifact):
 
     def _copy_databases(self, base_path):
         src_folder = self._model.databases_dir
-        dst_folder = os.path.join(base_path, "databases")
+        dst_folder = os.path.join(base_path, "checkpoints")
         if os.path.exists(dst_folder):
             os.rmdir(dst_folder)
         shutil.copytree(src_folder, dst_folder)
@@ -131,7 +131,7 @@ class Artifact(BentoServiceArtifact):
         model_file_path = self._model_file_path(path)
         model = pickle.load(open(model_file_path, "rb"))
         model.set_databases_dir(
-            os.path.join(os.path.dirname(model_file_path), "databases")
+            os.path.join(os.path.dirname(model_file_path), "checkpoints")
         )
         model.set_framework_dir(
             os.path.join(os.path.dirname(model_file_path), "framework")

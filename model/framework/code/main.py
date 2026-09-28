@@ -6,7 +6,7 @@ from typing import List
 
 import numpy as np
 import rdkit
-from crem.crem import grow_mol, mutate_mol
+from crem.crem import mutate_mol
 from rdkit import DataStructs
 from rdkit.Chem import MolFromSmiles, MolToSmiles, rdMolDescriptors
 from sklearn.cluster import MiniBatchKMeans
@@ -22,7 +22,7 @@ output_file = sys.argv[2]
 root = os.path.dirname(os.path.abspath(__file__))
 
 # Path to ChEMBL dataset with fragments of SC score 2
-database_dir = os.path.abspath(os.path.join(root, "..", "..", "databases"))
+database_dir = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
 database_path = os.path.join(database_dir, "replacements02_sc2.db")
 
 
@@ -100,14 +100,19 @@ def my_model(smiles_list: List[str], database_path: str) -> List[List[str]]:
             mutation_result = list(mutate_mol(mol=mol, db_name=database_path, ncores=2))
         except Exception:
             mutation_result = []  # Nothing generated
-        try:
-            growth_result = list(grow_mol(mol=mol, db_name=database_path, ncores=2))
-        except Exception:
-            growth_result = []  # Nothing generated
 
-        generated_smiles = list(
-            set(mutation_result + growth_result)
-        )  # Keep unique smiles
+        # Dedup by canonical SMILES, not the raw generator-yielded string: CReM can
+        # yield two different SMILES strings for the same canonical molecule, which
+        # a raw-string set() would fail to catch.
+        seen = set()
+        generated_smiles = []
+        for s in mutation_result:
+            m = MolFromSmiles(s)
+            key = MolToSmiles(m) if m is not None else s
+            if key in seen:
+                continue
+            seen.add(key)
+            generated_smiles.append(s)
 
         # The input molecule must never be returned as one of its own "generated"
         # outputs (CReM can reproduce it, e.g. by swapping a fragment for itself).

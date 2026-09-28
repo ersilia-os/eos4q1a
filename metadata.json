@@ -1,9 +1,9 @@
 {
     "Identifier": "eos4q1a",
-    "Slug": "crem-structure-generation",
+    "Slug": "crem-mutate",
     "Status": "Ready",
-    "Title": "CReM fragment based structure generation",
-    "Description": "CReM (chemically reasonable mutations) is a fragment-based generative model that breaks a molecule into fragments and replaces them with fragments from a database. It supports three modes: MUTATE (replace a fragment), GROW (replace a hydrogen with a fragment), and LINK (link two molecules via a fragment). This model uses MUTATE and GROW, which can generate thousands of analogues. When more than 100 molecules are generated, 100 diverse representatives are selected using Mini Batch K-Means clustering.",
+    "Title": "CReM mutate-based structure generation",
+    "Description": "CReM (chemically reasonable mutations) is a fragment-based generative model that breaks a molecule into fragments and replaces them with fragments from a database. It supports three modes: MUTATE (replace a fragment), GROW (replace a hydrogen with a fragment), and LINK (link two molecules via a fragment). This model uses MUTATE only, which can generate thousands of analogues. When more than 100 molecules are generated, 100 diverse representatives are selected using Mini Batch K-Means clustering.",
     "Deployment": [
         "Local"
     ],
@@ -37,8 +37,8 @@
     "License": "BSD-3-Clause",
     "Contributor": "DhanshreeA",
     "Incorporation Date": "2022-12-15",
-    "Last Packaging Date": "2026-09-24",
-    "Release": "v3.0.0",
+    "Last Packaging Date": "2026-09-28",
+    "Release": "v4.0.0",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4q1a.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4q1a",
     "Docker Architecture": [
