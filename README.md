@@ -1,6 +1,6 @@
 # CReM mutate-based structure generation
 
-CReM (chemically reasonable mutations) is a fragment-based generative model that breaks a molecule into fragments and replaces them with fragments from a database. It supports three modes: MUTATE (replace a fragment), GROW (replace a hydrogen with a fragment), and LINK (link two molecules via a fragment). This model uses MUTATE only, which can generate thousands of analogues. When more than 100 molecules are generated, 100 diverse representatives are selected using Mini Batch K-Means clustering.
+Generates new analogues of an input molecule by replacing a fragment (up to 10 heavy atoms) with an alternative from a curated ChEMBL fragment database. Part of the original structure is necessarily discarded at the replacement site. Uses the MUTATE mode of the CReM framework; up to 100 diverse analogues are returned per input via K-Means clustering. Cannot create new ring systems, so ring diversity is limited by the fragment database.
 
 This model was incorporated on 2022-12-15.Last packaged on 2026-09-28.
 
