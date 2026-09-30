@@ -2,7 +2,7 @@
 
 Generates new analogues of an input molecule by replacing a fragment (up to 10 heavy atoms) with an alternative from a curated ChEMBL fragment database. Part of the original structure is necessarily discarded at the replacement site. Uses the MUTATE mode of the CReM framework; up to 100 diverse analogues are returned per input via K-Means clustering. Cannot create new ring systems, so ring diversity is limited by the fragment database.
 
-This model was incorporated on 2022-12-15.Last packaged on 2026-09-28.
+This model was incorporated on 2022-12-15.Last packaged on 2026-09-30.
 
 ## Information
 ### Identifiers
@@ -53,8 +53,8 @@ _10 of 100 columns are shown_
 - **Image Size (Mb):** `2005.99`
 
 **Computational Performance (seconds):**
-- 10 inputs: `31.57`
-- 100 inputs: `308.48`
+- 10 inputs: `29.76`
+- 100 inputs: `377.45`
 - 10000 inputs: `-1`
 
 ### References
