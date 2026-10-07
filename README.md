@@ -1,6 +1,6 @@
 # CReM mutate-based structure generation
 
-Generates new analogues of an input molecule by replacing a fragment (up to 10 heavy atoms) with an alternative from a curated ChEMBL fragment database. Part of the original structure is necessarily discarded at the replacement site. Uses the MUTATE mode of the CReM framework; up to 100 diverse analogues are returned per input via K-Means clustering. Cannot create new ring systems, so ring diversity is limited by the fragment database.
+Generates analogues of an input molecule by replacing one fragment of up to ten heavy atoms with alternatives observed in the same local chemical context in ChEMBL, the MUTATE operation of Polishchuk's CReM framework. Replacements are drawn from a library restricted to synthetically accessible fragments, so analogues are chemically valid by construction, but no ring system missing from that library can appear. Where more than a hundred are produced, Ersilia clusters them and keeps one per cluster, so repeated runs return different sets.
 
 This model was incorporated on 2022-12-15.Last packaged on 2026-09-30.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2022-12-15.Last packaged on 2026-09-30.
 ### Output
 - **Output Dimension:** `100`
 - **Output Consistency:** `Variable`
-- **Interpretation:** Up to 100 newly generated molecules
+- **Interpretation:** Up to 100 analogues of the input, each differing by one fragment swapped from a ChEMBL-derived library.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
