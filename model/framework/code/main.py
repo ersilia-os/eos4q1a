@@ -46,9 +46,10 @@ def generate_fingerprint(mol: rdkit.Chem.rdchem.Mol, nbits, radius=3) -> np.ndar
 def sample_molecules(smiles: List[str]) -> List[str]:
     """
     Samples generated molecules into 100 clusters by fitting a K-Means clustering model
-    and returns one distinct molecule per cluster (the one closest to its centre).
+    and returns one distinct molecule per cluster (the nearest to its centre among the
+    molecules not already taken by another centre).
     Args:
-        mols (List[str]): List of generated molecule smiles
+        smiles (List[str]): List of generated molecule smiles (more than 100, unique)
 
     Returns:
         List[str]: List of 100 sampled molecule smiles
@@ -102,21 +103,30 @@ def is_same_2d_structure(smiles: str, flat_reference: str) -> bool:
 # Generate unique molecules with replacement fragments from the database
 def my_model(smiles_list: List[str], database_path: str) -> List[List[str]]:
     output_smiles = list()
-    input_mols = [MolFromSmiles(smi) for smi in smiles_list]
-    for mol in input_mols:
+    for smi in smiles_list:
+        mol = MolFromSmiles(smi)
+        if mol is None:
+            # An input RDKit cannot parse gives a row of empty cells, not a stopped run
+            print(f"Cannot parse input SMILES {smi!r}: empty row", file=sys.stderr)
+            output_smiles.append([""] * 100)
+            continue
         try:
             mutation_result = list(mutate_mol(mol=mol, db_name=database_path, ncores=2))
-        except Exception:
+        except Exception as e:
+            print(f"CReM mutate failed for {smi!r}: {type(e).__name__}: {e}", file=sys.stderr)
             mutation_result = []  # Nothing generated
 
         # Dedup by canonical SMILES, not the raw generator-yielded string: CReM can
         # yield two different SMILES strings for the same canonical molecule, which
-        # a raw-string set() would fail to catch.
+        # a raw-string set() would fail to catch. A candidate RDKit cannot parse is
+        # dropped (it would stop the fingerprinting of the clustering step below).
         seen = set()
         generated_smiles = []
         for s in mutation_result:
             m = MolFromSmiles(s)
-            key = MolToSmiles(m) if m is not None else s
+            if m is None:
+                continue
+            key = MolToSmiles(m)
             if key in seen:
                 continue
             seen.add(key)
