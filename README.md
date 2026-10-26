@@ -2,7 +2,7 @@
 
 Generates analogues of an input molecule by replacing one fragment of up to ten heavy atoms with alternatives observed in the same local chemical context in ChEMBL, the MUTATE operation of Polishchuks CReM framework. Replacements are drawn from a library restricted to synthetically accessible fragments, so analogues are chemically valid by construction, but no ring system missing from that library can appear. Where more than a hundred are produced, Ersilia clusters them and keeps one per cluster, so repeated runs return different sets.
 
-This model was incorporated on 2022-12-15.Last packaged on 2026-09-30.
+This model was incorporated on 2022-12-15.Last packaged on 2026-10-26.
 
 ## Information
 ### Identifiers
@@ -50,11 +50,11 @@ _10 of 100 columns are shown_
 ### Resource Consumption
 - **Model Size (Mb):** `688`
 - **Environment Size (Mb):** `661`
-- **Image Size (Mb):** `2005.99`
+- **Image Size (Mb):** `2013.05`
 
 **Computational Performance (seconds):**
-- 10 inputs: `29.76`
-- 100 inputs: `377.45`
+- 10 inputs: `29.75`
+- 100 inputs: `382.96`
 - 10000 inputs: `-1`
 
 ### References
